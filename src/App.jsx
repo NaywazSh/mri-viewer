@@ -6,14 +6,16 @@ import {
 
 // --- THE MOCK DATABASE ---
 // In a real app, this data would come from a server API.
+// --- THE MOCK DATABASE (Updated with working links) ---
 const STUDY_DATABASE = [
   { 
     id: 1, 
     name: "Localizer", 
     count: 3, 
     modality: "MR",
+    // Generic body scan (Unsplash)
     images: [
-      "https://prod-images-static.radiopaedia.org/images/51564756/a86f90117079603091996594244226_jumbo.jpeg"
+      "https://images.unsplash.com/photo-1559757175-9e351c95369d?q=80&w=800&auto=format&fit=crop"
     ]
   },
   { 
@@ -22,10 +24,10 @@ const STUDY_DATABASE = [
     count: 12, 
     modality: "MR",
     description: "Multi-level degenerative changes.",
+    // Wikipedia Commons Spine MRI (Public Domain)
     images: [
-      // Real Spine MRI images
-      "https://prod-images-static.radiopaedia.org/images/51564756/a86f90117079603091996594244226_jumbo.jpeg",
-      "https://prod-images-static.radiopaedia.org/images/51564757/a86f90117079603091996594244226_jumbo.jpeg" 
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Lumbar_spine_MRI.jpg/600px-Lumbar_spine_MRI.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Lumbar_spine_MRI.jpg/600px-Lumbar_spine_MRI.jpg" 
     ]
   },
   { 
@@ -34,9 +36,9 @@ const STUDY_DATABASE = [
     count: 24, 
     modality: "MR",
     description: "Normal brain appearance.",
+    // Wikipedia Commons Brain MRI
     images: [
-      // Real Brain MRI image
-      "https://prod-images-static.radiopaedia.org/images/2207606/c748234850550428d0526715456890_jumbo.jpeg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/MRI_head_side.jpg/480px-MRI_head_side.jpg"
     ]
   },
   { 
@@ -45,9 +47,9 @@ const STUDY_DATABASE = [
     count: 15, 
     modality: "MR",
     description: "ACL intact. Mild effusion.",
+    // Wikipedia Commons Knee MRI
     images: [
-      // Real Knee MRI
-      "https://prod-images-static.radiopaedia.org/images/53331/85a089204051061917154943015522_jumbo.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/a/a4/Knee_MR_sagittal_T1.jpg"
     ]
   },
 ];
