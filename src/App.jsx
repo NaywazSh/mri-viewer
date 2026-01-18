@@ -34,7 +34,7 @@ const STUDY_DATABASE = [
     description: "Axial Brain Obl",
     techParams: { tr: "9000", te: "120", slice: "5.0", matrix: "320x224", fov: "220mm" },
     // Abstract Blue Medical Scan Texture
-    images: ["https://images.pexels.com/photos/7089298/pexels-photo-7089298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]
+    images: ["https://images.pexels.com/photos/7089020/pexels-photo-7089020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]
   },
   { 
     id: 4, 
@@ -44,7 +44,7 @@ const STUDY_DATABASE = [
     description: "Coronal PD Fat Sat",
     techParams: { tr: "2800", te: "35", slice: "3.5", matrix: "384x256", fov: "160mm" },
     // Joint/Bone looking scan
-    images: ["https://images.pexels.com/photos/7298497/pexels-photo-7298497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]
+    images: ["https://images.pexels.com/photos/7089298/pexels-photo-7089298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]
   },
 ];
 
