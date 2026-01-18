@@ -1,21 +1,19 @@
 import React, { useState, useRef } from 'react';
 import { 
-  Menu, Settings, Database, Contrast, Sun, ZoomIn, 
-  Share2, AlertCircle, CheckCircle
+  Menu, Database, AlertCircle
 } from 'lucide-react';
 
-// --- THE MOCK DATABASE ---
-// In a real app, this data would come from a server API.
-// --- THE MOCK DATABASE (Updated with working links) ---
+// --- DATABASE WITH PEXELS & UNSPLASH IMAGES ---
 const STUDY_DATABASE = [
   { 
     id: 1, 
     name: "Localizer", 
-    count: 3, 
+    count: 1, 
     modality: "MR",
-    // Generic body scan (Unsplash)
+    description: "Scout view / Localizer",
+    // Pexels: Doctor holding a scan
     images: [
-      "https://images.unsplash.com/photo-1559757175-9e351c95369d?q=80&w=800&auto=format&fit=crop"
+      "https://images.pexels.com/photos/4226256/pexels-photo-4226256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     ]
   },
   { 
@@ -24,10 +22,9 @@ const STUDY_DATABASE = [
     count: 12, 
     modality: "MR",
     description: "Multi-level degenerative changes.",
-    // Wikipedia Commons Spine MRI (Public Domain)
+    // Unsplash: Spine/Torso X-ray style image
     images: [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Lumbar_spine_MRI.jpg/600px-Lumbar_spine_MRI.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Lumbar_spine_MRI.jpg/600px-Lumbar_spine_MRI.jpg" 
+      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1600" 
     ]
   },
   { 
@@ -36,9 +33,9 @@ const STUDY_DATABASE = [
     count: 24, 
     modality: "MR",
     description: "Normal brain appearance.",
-    // Wikipedia Commons Brain MRI
+    // Pexels: Brain Scan (Blue tint)
     images: [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/MRI_head_side.jpg/480px-MRI_head_side.jpg"
+      "https://images.pexels.com/photos/7089020/pexels-photo-7089020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     ]
   },
   { 
@@ -47,9 +44,9 @@ const STUDY_DATABASE = [
     count: 15, 
     modality: "MR",
     description: "ACL intact. Mild effusion.",
-    // Wikipedia Commons Knee MRI
+    // Pexels: Knee/Joint Scan
     images: [
-      "https://upload.wikimedia.org/wikipedia/commons/a/a4/Knee_MR_sagittal_T1.jpg"
+      "https://images.pexels.com/photos/7298497/pexels-photo-7298497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     ]
   },
 ];
@@ -64,7 +61,6 @@ export default function MRIViewerPro() {
   const [isDragging, setIsDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0 });
 
-  // Get current data based on selection
   const activeSeries = STUDY_DATABASE.find(s => s.id === activeSeriesId) || STUDY_DATABASE[0];
 
   const handleMouseDown = (e) => {
@@ -127,30 +123,14 @@ export default function MRIViewerPro() {
         {/* Main Viewport */}
         <main className="flex-1 flex flex-col bg-black relative">
           
-          {/* Viewport Info Overlays */}
           <div className="absolute top-4 left-4 z-10 pointer-events-none text-xs font-mono space-y-1">
             <div className="text-blue-400 font-bold text-sm">Se: {activeSeries.id}</div>
-            <div className="text-slate-300">{activeSeries.description || 'No Description'}</div>
-          </div>
-
-          <div className="absolute top-4 right-4 z-10 pointer-events-none text-xs font-mono text-right space-y-1">
-             <div className="text-slate-300">{PATIENT.name}</div>
-             <div className="text-slate-500">Acc: 993821</div>
-          </div>
-
-          <div className="absolute bottom-4 left-4 z-10 pointer-events-none text-xs font-mono space-y-1">
-            <div className="text-slate-400">Zoom: {zoom}%</div>
+            <div className="text-slate-300">{activeSeries.description}</div>
           </div>
 
           <div className="absolute bottom-4 right-4 z-10 pointer-events-none text-xs font-mono text-right space-y-1">
              <div className="text-slate-300">WL: {Math.round(wwwl.l * 20)} / WW: {Math.round(wwwl.w * 30)}</div>
           </div>
-
-          {/* Orientation Markers */}
-          <span className="absolute top-2 left-1/2 -translate-x-1/2 text-xs font-bold text-slate-600">A</span>
-          <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-xs font-bold text-slate-600">P</span>
-          <span className="absolute top-1/2 left-2 -translate-y-1/2 text-xs font-bold text-slate-600">R</span>
-          <span className="absolute top-1/2 right-2 -translate-y-1/2 text-xs font-bold text-slate-600">L</span>
 
           {/* The Image */}
           <div 
@@ -168,7 +148,7 @@ export default function MRIViewerPro() {
                }}
              >
                 <img 
-                  // KEY CHANGE: Load image from the active series
+                  // Uses the first image in the array, or falls back if missing
                   src={activeSeries.images[0]} 
                   className="max-h-[90vh] object-contain opacity-90"
                   alt="MRI Scan"
@@ -178,7 +158,7 @@ export default function MRIViewerPro() {
           </div>
         </main>
 
-        {/* Right Sidebar (Tools) */}
+        {/* Right Sidebar */}
         <aside className="w-72 bg-[#080808] border-l border-slate-800 flex flex-col shrink-0 p-4">
            <h3 className="text-xs font-semibold text-slate-500 uppercase mb-4">Adjustments</h3>
            
@@ -205,8 +185,10 @@ export default function MRIViewerPro() {
                     <span>AI Suggestion</span>
                  </div>
                  {activeSeriesId === 2 
-                   ? "Possible disc herniation noted at L4-L5 level. Correlate with clinical symptoms."
-                   : "No significant abnormalities detected in this series."
+                   ? "Degenerative changes observed in L4-L5 vertebrae."
+                   : activeSeriesId === 3 
+                     ? "Brain structures appear normal. No mass effect."
+                     : "No significant abnormalities detected in this series."
                  }
               </div>
            </div>
