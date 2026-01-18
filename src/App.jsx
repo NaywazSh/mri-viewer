@@ -14,7 +14,7 @@ const STUDY_DATABASE = [
     description: "Scout / 3-Plane Loc",
     techParams: { tr: "450", te: "10", slice: "5.0", matrix: "256x128", fov: "350mm" },
     // Safe Unsplash Image (Medical Tech style)
-    images: ["https://images.pexels.com/photos/5723877/pexels-photo-5723877.jpeg?auto=format&fit=crop&q=80&w=1000"]
+    images: ["https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1000"]
   },
   { 
     id: 2, 
@@ -24,7 +24,7 @@ const STUDY_DATABASE = [
     description: "FSE T2 Sagittal",
     techParams: { tr: "2500", te: "102", slice: "3.0", matrix: "512x512", fov: "280mm" },
     // The Hand X-Ray you liked (It's reliable and looks pro, even if not a spine)
-    images: ["https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=800"]
+    images: ["https://images.pexels.com/photos/5723877/pexels-photo-5723877.jpeg?auto=format&fit=crop&q=80&w=800"]
   },
   { 
     id: 3, 
