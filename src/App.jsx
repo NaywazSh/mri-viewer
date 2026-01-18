@@ -14,7 +14,7 @@ const STUDY_DATABASE = [
     description: "Scout / 3-Plane Loc",
     techParams: { tr: "450", te: "10", slice: "5.0", matrix: "256x128", fov: "350mm" },
     // Safe Unsplash Image (Medical Tech style)
-    images: ["https://images.unsplash.com/photo-1516549655169-df83a0674f66?auto=format&fit=crop&q=80&w=1000"]
+    images: ["https://images.pexels.com/photos/5723877/pexels-photo-5723877.jpeg?auto=format&fit=crop&q=80&w=1000"]
   },
   { 
     id: 2, 
@@ -34,7 +34,7 @@ const STUDY_DATABASE = [
     description: "Axial Brain Obl",
     techParams: { tr: "9000", te: "120", slice: "5.0", matrix: "320x224", fov: "220mm" },
     // Abstract Blue Medical Scan Texture
-    images: ["https://images.pexels.com/photos/7089020/pexels-photo-7089020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]
+    images: ["https://images.pexels.com/photos/7089298/pexels-photo-7089298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]
   },
   { 
     id: 4, 
